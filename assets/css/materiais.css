@@ -1,0 +1,153 @@
+/* ==========================================================
+   Página de materiais: prompts, Mini-GDD, ficha, roteiro, rubrica
+   ========================================================== */
+
+.mat {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 6rem clamp(1rem, 4vw, 2.5rem) 4rem;
+}
+.mat__head { display: grid; gap: .8rem; margin-bottom: 2rem; }
+.mat__head h1 {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-variation-settings: "wdth" 82, "opsz" 96;
+}
+.mat__head p { color: var(--ink-2); max-width: 60ch; font-size: 1.1rem; }
+
+/* Abas */
+.tabs {
+  position: relative;
+  display: flex; flex-wrap: wrap; gap: .3rem;
+  padding: .35rem;
+  border: 2px solid var(--ink);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 4px 4px 0 var(--shadow-ink);
+  margin-bottom: 2rem;
+  width: fit-content;
+  max-width: 100%;
+}
+.tabs__ink {
+  position: absolute; top: .35rem; left: 0;
+  height: calc(100% - .7rem);
+  border-radius: 12px;
+  background: var(--ink);
+  z-index: 0;
+  pointer-events: none;
+}
+.tab {
+  position: relative; z-index: 1;
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: .6rem 1rem;
+  border: 0; border-radius: 12px;
+  background: transparent;
+  color: var(--ink);
+  font: 700 .98rem/1 var(--f-body);
+  cursor: pointer;
+  transition: color .25s;
+}
+.tab[aria-selected="true"] { color: var(--paper); }
+.tab:not([aria-selected="true"]):hover { background: var(--paper-2); }
+
+.panel-tab[hidden] { display: none; }
+.panel-tab > h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: .4rem; }
+.panel-tab > .intro { color: var(--ink-2); max-width: 64ch; margin-bottom: 1.6rem; }
+
+/* Lista de prompts */
+.prompt-list { display: grid; gap: 1.6rem; }
+.prompt-list .prompt__body { font-size: 1.02rem; }
+.prompt__meta { font-size: .85rem; color: var(--ink-2); font-weight: 400; margin-left: .3rem; }
+
+/* Documento (Mini-GDD e ficha) */
+.doc {
+  background: var(--surface);
+  border: 2px solid var(--ink);
+  border-radius: var(--r-lg);
+  box-shadow: 6px 6px 0 var(--shadow-ink);
+  overflow: hidden;
+}
+.doc__body { padding: 1.4rem 1.6rem 1.8rem; display: grid; gap: 1.1rem; }
+.doc__section h3 { font-size: 1.25rem; display: flex; align-items: baseline; gap: .6rem; }
+.doc__section h3 b { color: var(--blue); font-size: 1rem; min-width: 1.8rem; }
+.doc__section p { color: var(--ink-2); margin-top: .2rem; padding-left: 2.4rem; }
+.doc__section.is-new h3 b { color: var(--green); }
+.doc__tag {
+  display: inline-flex; align-items: center; gap: .3rem;
+  margin-left: auto;
+  font-family: var(--f-body); font-size: .75rem; font-weight: 700;
+  padding: .15rem .55rem; border-radius: 999px;
+  background: var(--green-soft); color: var(--green);
+}
+.doc__cover {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem;
+  padding: 1rem;
+  border-radius: 14px;
+  background: var(--yellow-soft);
+}
+.doc__cover span { font-size: .9rem; font-weight: 700; }
+.doc__cover span::after { content: ""; display: block; margin-top: 1.4rem; border-bottom: 2px dashed color-mix(in srgb, var(--ink) 35%, transparent); }
+.doc__divider { border: 0; border-top: 2px dashed var(--line); margin: .3rem 0; }
+
+/* Ficha (formulário imprimível) */
+.form-q { display: grid; gap: .5rem; padding: .9rem 0; border-bottom: 2px dashed var(--line); }
+.form-q:last-child { border-bottom: 0; }
+.form-q__t { font-weight: 700; display: flex; gap: .6rem; }
+.form-q__t b { color: var(--blue); font-family: var(--f-display); }
+.form-q__opts { display: flex; gap: 1.2rem; flex-wrap: wrap; padding-left: 1.6rem; }
+.form-q__opts label { display: inline-flex; gap: .4rem; align-items: center; cursor: pointer; }
+.form-q__opts input { width: 1.1rem; height: 1.1rem; accent-color: var(--blue); }
+.form-q textarea {
+  margin-left: 1.6rem;
+  width: calc(100% - 1.6rem);
+  min-height: 3.2rem;
+  padding: .6rem .8rem;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  resize: vertical;
+}
+.form-q textarea:focus { outline: none; border-color: var(--blue); }
+.form-q.is-gold { background: var(--yellow-soft); border-radius: 14px; padding: .9rem; border-bottom: 0; margin-top: .4rem; }
+
+/* Tabelas (roteiro e rubrica) */
+.table-wrap {
+  overflow-x: auto;
+  border: 2px solid var(--ink);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 6px 6px 0 var(--shadow-ink);
+}
+table { width: 100%; border-collapse: collapse; min-width: 640px; }
+th, td { padding: .8rem 1rem; text-align: left; vertical-align: top; border-bottom: 1.5px solid var(--line); }
+th { font-family: var(--f-display); font-size: 1rem; background: var(--paper-2); }
+tbody tr:last-child td { border-bottom: 0; }
+td.time { font-family: var(--f-display); font-weight: 800; white-space: nowrap; color: var(--blue); }
+tr.is-block td { background: color-mix(in srgb, var(--yellow-soft) 70%, transparent); font-weight: 700; }
+.rubric td:first-child { font-weight: 700; }
+
+.mat__tools { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1.2rem; }
+
+.checklist-plain { list-style: none; padding: 0; margin: 1.6rem 0 0; display: grid; gap: .45rem; }
+.checklist-plain li { display: flex; gap: .6rem; align-items: baseline; }
+.checklist-plain .bi { color: var(--green); }
+
+/* Impressão */
+@media print {
+  body { background: #fff; color: #000; font-size: 12pt; }
+  .topbar, .tabs, .mat__tools, .prompt__bar .btn, .toast-zone { display: none !important; }
+  .panel-tab[hidden] { display: block !important; }
+  .panel-tab { break-before: page; }
+  .panel-tab:first-of-type { break-before: auto; }
+  .prompt, .doc, .table-wrap { box-shadow: none; break-inside: avoid; }
+  .mat { padding-top: 0; }
+  .prompt__body { max-height: none !important; overflow: visible; }
+}
+
+@media (max-width: 640px) {
+  .doc__cover { grid-template-columns: 1fr 1fr; }
+  .doc__section p { padding-left: 0; }
+  .tab span { display: none; }
+  .tab { padding: .6rem .8rem; }
+}

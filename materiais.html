@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Materiais | Oficina Socrática</title>
+  <meta name="description" content="Prompts para copiar, modelo do Mini-GDD, ficha do jogador, roteiro de 2 horas e rubrica de avaliação.">
+  <script>
+    try {
+      if (sessionStorage.getItem("os-curtain") === "1") document.documentElement.classList.add("is-entering");
+      document.documentElement.setAttribute("data-theme", localStorage.getItem("os-theme") || "light");
+    } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Silkscreen&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHSWRr1XeTyhezb4abCG4ccI5AkVDxqC+" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/materiais.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="index.html#mapa" data-transition aria-label="Voltar ao mapa da oficina">
+      <span class="brand__mark"><i class="bi bi-map" aria-hidden="true"></i></span>
+      <span>Mapa</span>
+    </a>
+    <div class="topbar__group">
+      <a class="btn btn--sm" href="etapa1.html#1" data-transition data-press><i class="bi bi-easel" aria-hidden="true"></i><span>Etapa 1</span></a>
+      <a class="btn btn--sm" href="etapa2.html#1" data-transition data-press><i class="bi bi-easel" aria-hidden="true"></i><span>Etapa 2</span></a>
+      <button class="btn btn--sm btn--icon" type="button" data-theme-toggle aria-label="Alternar tema"><i class="bi bi-moon-stars" aria-hidden="true"></i></button>
+    </div>
+  </header>
+
+  <main class="mat">
+    <div class="mat__head">
+      <h1>Materiais da oficina</h1>
+      <p>Tudo o que a turma precisa receber, pronto para copiar e mandar no grupo de mensagens, e o que o professor precisa ter em mãos.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Materiais">
+      <span class="tabs__ink" aria-hidden="true"></span>
+      <button class="tab" role="tab" id="t-prompts" aria-controls="p-prompts" data-hash="prompts" aria-selected="true"><i class="bi bi-chat-square-text" aria-hidden="true"></i><span>Prompts</span></button>
+      <button class="tab" role="tab" id="t-gdd" aria-controls="p-gdd" data-hash="gdd" aria-selected="false" tabindex="-1"><i class="bi bi-file-earmark-text" aria-hidden="true"></i><span>Mini-GDD</span></button>
+      <button class="tab" role="tab" id="t-ficha" aria-controls="p-ficha" data-hash="ficha" aria-selected="false" tabindex="-1"><i class="bi bi-clipboard-check" aria-hidden="true"></i><span>Ficha do jogador</span></button>
+      <button class="tab" role="tab" id="t-roteiro" aria-controls="p-roteiro" data-hash="roteiro" aria-selected="false" tabindex="-1"><i class="bi bi-clock-history" aria-hidden="true"></i><span>Roteiro 2h</span></button>
+      <button class="tab" role="tab" id="t-avaliacao" aria-controls="p-avaliacao" data-hash="avaliacao" aria-selected="false" tabindex="-1"><i class="bi bi-ui-checks-grid" aria-hidden="true"></i><span>Avaliação</span></button>
+    </div>
+
+    <!-- ============ PROMPTS ============ -->
+    <section class="panel-tab" id="p-prompts" role="tabpanel" aria-labelledby="t-prompts">
+      <h2>Prompts</h2>
+      <p class="intro">Na ordem em que aparecem na oficina. Os trechos em destaque são para o aluno substituir.</p>
+      <div class="prompt-list">
+
+        <article class="prompt">
+          <div class="prompt__bar">
+            <span class="prompt__who"><i class="bi bi-chat-quote" aria-hidden="true"></i>1. Mentora<span class="prompt__meta">Etapa 1, momento 1.2</span></span>
+            <button class="btn btn--sm" type="button" data-copy="#m-mentora" data-press><i class="bi bi-copy" aria-hidden="true"></i><span data-copy-label>Copiar</span></button>
+          </div>
+<pre class="prompt__body" id="m-mentora">Você será minha mentora para criação de um jogo digital.
+
+Seu papel NÃO é criar o jogo por mim. Quero que você me ajude a tomar as decisões fazendo perguntas simples, uma por vez.
+
+Use o método socrático:
+- faça uma pergunta por vez;
+- não dê a resposta antes que eu tente responder;
+- questione minhas escolhas quando elas estiverem vagas ou contraditórias;
+- dê exemplos apenas quando eu disser que não sei;
+- ajude-me a transformar ideias muito genéricas em decisões concretas;
+- fale de maneira simples, como para um estudante de 15 a 17 anos.
+
+No final, quero conseguir definir:
+1. O que o jogador faz?
+2. O que faz o jogador continuar jogando?
+3. Quando o jogador perde?
+4. Como o jogo se parece?
+
+Não comece criando o jogo. Comece me fazendo uma pergunta para descobrir a ideia que tenho em mente.</pre>
+        </article>
+
+        <article class="prompt prompt--green">
+          <div class="prompt__bar">
+            <span class="prompt__who"><i class="bi bi-pen" aria-hidden="true"></i>2. Redatora<span class="prompt__meta">Etapa 1, momento 1.3</span></span>
+            <button class="btn btn--sm" type="button" data-copy="#m-redatora" data-press><i class="bi bi-copy" aria-hidden="true"></i><span data-copy-label>Copiar</span></button>
+          </div>
+<pre class="prompt__body" id="m-redatora">Agora organize as decisões que tomamos em um Mini-GDD.
+
+Não invente informações que eu não defini.
+
+Organize exatamente nestas seções:
+
+MINI-GDD
+1. Nome provisório
+2. Ideia do jogo (2 ou 3 frases)
+3. O que o jogador faz? (a ação principal)
+4. O que faz o jogador continuar jogando? (objetivo, progressão ou desafio)
+5. Quando o jogador perde? (condição de derrota)
+6. Como o jogo se parece? (estilo visual, câmera, ambiente e características principais)
+7. Resumo da experiência (como seria jogar uma partida, em poucas frases)
+
+Depois do GDD, faça uma lista chamada:
+DECISÕES QUE AINDA PRECISAMOS TOMAR
+Inclua somente questões importantes que ainda não foram definidas.</pre>
+        </article>
+
+        <article class="prompt prompt--yellow">
+          <div class="prompt__bar">
+            <span class="prompt__who"><i class="bi bi-tools" aria-hidden="true"></i>3. Construtora<span class="prompt__meta">Etapa 2, Caminho A</span></span>
+            <button class="btn btn--sm" type="button" data-copy="#m-construtora" data-press><i class="bi bi-copy" aria-hidden="true"></i><span data-copy-label>Copiar</span></button>
+          </div>
+<pre class="prompt__body" id="m-construtora">Este é o Mini-GDD do nosso grupo:
+
+<mark>[COLE O MINI-GDD AQUI]</mark>
+
+Atue como construtora de protótipos. Crie o MENOR protótipo jogável possível deste jogo, em um único arquivo HTML que funcione no navegador do celular e do computador.
+
+Regras:
+- implemente somente: a ação principal, o objetivo, a condição de derrota e um visual básico;
+- use formas simples (quadrados, círculos, cores) no lugar de desenhos;
+- controles por toque na tela e também pelo teclado;
+- NÃO acrescente nada que não esteja no Mini-GDD;
+- NÃO coloque textos de instrução na tela: queremos descobrir se o jogo se explica sozinho.
+
+Depois do código, liste em tópicos curtos:
+1. o que você implementou;
+2. o que do Mini-GDD ficou de fora.</pre>
+        </article>
+
+        <article class="prompt">
+          <div class="prompt__bar">
+            <span class="prompt__who"><i class="bi bi-chat-text" aria-hidden="true"></i>4. Explique antes de mudar<span class="prompt__meta">Etapa 2, Caminho A</span></span>
+            <button class="btn btn--sm" type="button" data-copy="#m-explique" data-press><i class="bi bi-copy" aria-hidden="true"></i><span data-copy-label>Copiar</span></button>
+          </div>
+<pre class="prompt__body" id="m-explique">Explique em linguagem simples, em no máximo 5 frases, como o jogo decide que o jogador perdeu.</pre>
+        </article>
+
+        <article class="prompt prompt--yellow">
+          <div class="prompt__bar">
+            <span class="prompt__who"><i class="bi bi-scissors" aria-hidden="true"></i>5. Construtora, versão papel<span class="prompt__meta">Etapa 2, Caminho B</span></span>
+            <button class="btn btn--sm" type="button" data-copy="#m-papel" data-press><i class="bi bi-copy" aria-hidden="true"></i><span data-copy-label>Copiar</span></button>
+          </div>
+<pre class="prompt__body" id="m-papel">Este é o Mini-GDD do nosso grupo:
+
+<mark>[COLE O MINI-GDD AQUI]</mark>
+
+Vamos fazer um protótipo de papel. Uma pessoa do grupo vai ser o "computador" e mover as peças.
+
+Transforme o jogo em no máximo 6 regras curtas que essa pessoa consiga seguir sem pensar, por exemplo:
+"A cada 3 segundos, coloque um obstáculo no topo da folha."
+
+Não acrescente nada que não esteja no Mini-GDD.</pre>
+        </article>
+
+        <article class="prompt prompt--pink">
+          <div class="prompt__bar">
+            <span class="prompt__who"><i class="bi bi-search" aria-hidden="true"></i>6. Testadora<span class="prompt__meta">Etapa 2, momento 2.3</span></span>
+            <button class="btn btn--sm" type="button" data-copy="#m-testadora" data-press><i class="bi bi-copy" aria-hidden="true"></i><span data-copy-label>Copiar</span></button>
+          </div>
+<pre class="prompt__body" id="m-testadora">Este é o nosso Mini-GDD:
+
+<mark>[COLE O MINI-GDD]</mark>
+
+Este foi o feedback de um jogador que testou nosso protótipo:
+
+<mark>[COLE A FICHA DO JOGADOR]</mark>
+
+Atue como testadora de jogos. Não concorde automaticamente com o jogador.
+
+Identifique, se existirem:
+1. problemas de compreensão;
+2. problemas de jogabilidade;
+3. problemas de dificuldade;
+4. problemas visuais;
+5. momentos que podem fazer o jogador desistir.
+
+Depois faça no máximo 3 perguntas que precisamos responder antes de mudar o jogo.
+
+Não proponha soluções. Queremos pensar nos problemas primeiro.</pre>
+        </article>
+
+        <article class="prompt prompt--green">
+          <div class="prompt__bar">
+            <span class="prompt__who"><i class="bi bi-arrow-repeat" aria-hidden="true"></i>7. Uma mudança<span class="prompt__meta">Etapa 2, momento 2.4</span></span>
+            <button class="btn btn--sm" type="button" data-copy="#m-mudanca" data-press><i class="bi bi-copy" aria-hidden="true"></i><span data-copy-label>Copiar</span></button>
+          </div>
+<pre class="prompt__body" id="m-mudanca">Decidimos fazer UMA mudança no protótipo:
+
+<mark>[DESCREVA A MUDANÇA QUE O GRUPO DECIDIU]</mark>
+
+Motivo: <mark>[O QUE O JOGADOR DISSE QUE NOS LEVOU A ISSO]</mark>
+
+Faça somente essa mudança, sem alterar o resto do jogo.
+Depois diga exatamente o que mudou no código, em linguagem simples.</pre>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ MINI-GDD ============ -->
+    <section class="panel-tab" id="p-gdd" role="tabpanel" aria-labelledby="t-gdd" hidden>
+      <h2>O Mini-GDD que cresce</h2>
+      <p class="intro">Um documento só. As seções 1 a 7 nascem na Etapa 1, com a Redatora. As seções 8 a 10 entram na Etapa 2. A capa-resumo fica no topo para leitura rápida.</p>
+      <div class="mat__tools">
+        <button class="btn btn--sm" type="button" data-copy="#gdd-text" data-press><i class="bi bi-copy" aria-hidden="true"></i><span data-copy-label>Copiar</span></button>
+        <button class="btn btn--sm" type="button" data-print data-press><i class="bi bi-printer" aria-hidden="true"></i><span>Imprimir</span></button>
+      </div>
+      <div class="doc">
+        <div class="doc__body" id="gdd-text">
+          <div class="doc__cover" aria-label="Capa-resumo">
+            <span>Nome</span><span>Ideia (1 frase)</span><span>Ação principal</span>
+            <span>Objetivo</span><span>Condição de derrota</span><span>Estilo visual</span>
+          </div>
+          <div class="doc__section"><h3><b>1</b>Nome provisório</h3></div>
+          <div class="doc__section"><h3><b>2</b>Ideia do jogo</h3><p>Explique o jogo em 2 ou 3 frases.</p></div>
+          <div class="doc__section"><h3><b>3</b>O que o jogador faz?</h3><p>Descreva a ação principal.</p></div>
+          <div class="doc__section"><h3><b>4</b>O que faz o jogador continuar jogando?</h3><p>Objetivo, progressão ou desafio.</p></div>
+          <div class="doc__section"><h3><b>5</b>Quando o jogador perde?</h3><p>Condição de derrota.</p></div>
+          <div class="doc__section"><h3><b>6</b>Como o jogo se parece?</h3><p>Estilo visual, câmera, ambiente e características principais.</p></div>
+          <div class="doc__section"><h3><b>7</b>Resumo da experiência</h3><p>Como seria jogar uma partida, em poucas frases.</p></div>
+          <div class="doc__section"><h3><b><i class="bi bi-list-check" aria-hidden="true"></i></b>Decisões que ainda precisamos tomar</h3><p>Somente questões importantes que ainda não foram definidas.</p></div>
+          <hr class="doc__divider">
+          <div class="doc__section is-new"><h3><b>8</b>Protótipo<span class="doc__tag"><i class="bi bi-plus-lg" aria-hidden="true"></i>Etapa 2</span></h3><p>Caminho usado (A, IA, ou B, papel). Link do canvas ou foto do papel.</p></div>
+          <div class="doc__section is-new"><h3><b>9</b>Teste<span class="doc__tag"><i class="bi bi-plus-lg" aria-hidden="true"></i>Etapa 2</span></h3><p>Quem testou. O que funcionou. O que não funcionou. O que mudamos e por quê.</p></div>
+          <div class="doc__section is-new"><h3><b>10</b>Uso da IA<span class="doc__tag"><i class="bi bi-plus-lg" aria-hidden="true"></i>Etapa 2</span></h3><p>Como a IA ajudou a planejar (Mentora), a organizar (Redatora), a construir (Construtora) e a entender o teste (Testadora). Uma decisão que foi nossa e não da IA.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FICHA ============ -->
+    <section class="panel-tab" id="p-ficha" role="tabpanel" aria-labelledby="t-ficha" hidden>
+      <h2>Ficha do jogador</h2>
+      <p class="intro">Preenchida pelo grupo testador durante o teste cruzado. O grupo criador não explica nada enquanto o outro joga.</p>
+      <div class="mat__tools">
+        <button class="btn btn--sm" type="button" data-copy="#ficha-text" data-press><i class="bi bi-copy" aria-hidden="true"></i><span data-copy-label>Copiar</span></button>
+        <button class="btn btn--sm" type="button" data-print data-press><i class="bi bi-printer" aria-hidden="true"></i><span>Imprimir</span></button>
+      </div>
+      <div class="doc">
+        <form class="doc__body" id="ficha-text" onsubmit="return false">
+          <div class="form-q">
+            <p class="form-q__t"><b>1</b>Você entendeu o que deveria fazer?</p>
+            <div class="form-q__opts"><label><input type="radio" name="q1"> Sim</label><label><input type="radio" name="q1"> Mais ou menos</label><label><input type="radio" name="q1"> Não</label></div>
+          </div>
+          <div class="form-q">
+            <p class="form-q__t"><b>2</b>Você entendeu como ganhar pontos ou progredir?</p>
+            <div class="form-q__opts"><label><input type="radio" name="q2"> Sim</label><label><input type="radio" name="q2"> Mais ou menos</label><label><input type="radio" name="q2"> Não</label></div>
+          </div>
+          <div class="form-q">
+            <p class="form-q__t"><b>3</b>Você descobriu sozinho como perder?</p>
+            <div class="form-q__opts"><label><input type="radio" name="q3"> Sim</label><label><input type="radio" name="q3"> Não</label></div>
+          </div>
+          <div class="form-q">
+            <label class="form-q__t" for="q4"><b>4</b>O que foi mais divertido?</label>
+            <textarea id="q4" rows="2"></textarea>
+          </div>
+          <div class="form-q">
+            <label class="form-q__t" for="q5"><b>5</b>O que foi mais confuso?</label>
+            <textarea id="q5" rows="2"></textarea>
+          </div>
+          <div class="form-q">
+            <label class="form-q__t" for="q6"><b>6</b>O que você mudaria?</label>
+            <textarea id="q6" rows="2"></textarea>
+          </div>
+          <div class="form-q is-gold">
+            <label class="form-q__t" for="q7"><b>7</b>Em que momento você ficou com vontade de parar de jogar?</label>
+            <textarea id="q7" rows="2"></textarea>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ ROTEIRO ============ -->
+    <section class="panel-tab" id="p-roteiro" role="tabpanel" aria-labelledby="t-roteiro" hidden>
+      <h2>Roteiro de 2 horas</h2>
+      <p class="intro">Individual na Etapa 1, grupos de 3 a 4 na Etapa 2. O cronômetro de cada momento está nos slides (tecla T).</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tempo</th><th>Momento</th><th>Atividade</th><th>IA</th></tr></thead>
+          <tbody>
+            <tr class="is-block"><td class="time">5 min</td><td>Abertura</td><td>Pergunta dos 30 segundos, ciclo da oficina, regras do dia</td><td>Sem IA</td></tr>
+            <tr class="is-block"><td class="time">55 min</td><td>Etapa 1</td><td>Conceito do jogo, individual, no celular</td><td>Mentora, Redatora</td></tr>
+            <tr><td class="time">8 min</td><td>1.1</td><td>As 4 perguntas aplicadas a um jogo conhecido</td><td>Sem IA</td></tr>
+            <tr><td class="time">25 min</td><td>1.2</td><td>Conversa socrática até tomar as 4 decisões</td><td>Mentora</td></tr>
+            <tr><td class="time">12 min</td><td>1.3</td><td>Mini-GDD; o aluno confere se a IA não inventou nada</td><td>Redatora</td></tr>
+            <tr><td class="time">10 min</td><td>1.4</td><td>Troca em pares: explicar o jogo do colega sem perguntar</td><td>Sem IA</td></tr>
+            <tr class="is-block"><td class="time">5 min</td><td>Transição</td><td>Grupos de 3 a 4, uma ideia, papéis, caminho A ou B</td><td>Sem IA</td></tr>
+            <tr class="is-block"><td class="time">50 min</td><td>Etapa 2</td><td>Protótipo, teste e iteração, em grupos</td><td>Construtora, Testadora</td></tr>
+            <tr><td class="time">15 min</td><td>2.1</td><td>Protótipo 1 (canvas ou papel) e "explique antes de mudar"</td><td>Construtora</td></tr>
+            <tr><td class="time">12 min</td><td>2.2</td><td>Teste cruzado com a ficha do jogador</td><td>Sem IA</td></tr>
+            <tr><td class="time">10 min</td><td>2.3</td><td>Reflexão sobre o feedback; o grupo decide uma mudança</td><td>Testadora</td></tr>
+            <tr><td class="time">13 min</td><td>2.4</td><td>Protótipo 2 e registro do que mudou</td><td>Construtora</td></tr>
+            <tr class="is-block"><td class="time">5 min</td><td>Fechamento</td><td>Mini-GDD ganha as seções 8 a 10; porta-vozes respondem o que mudou</td><td>Sem IA</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="checklist-plain" aria-label="Antes da aula">
+        <li><i class="bi bi-check2-square" aria-hidden="true"></i>Fazer o fluxo completo do Caminho A uma vez, num celular, antes da aula.</li>
+        <li><i class="bi bi-check2-square" aria-hidden="true"></i>Conferir as regras de idade e de conta das IAs para a turma.</li>
+        <li><i class="bi bi-check2-square" aria-hidden="true"></i>Separar folhas, canetas e tesouras para o Caminho B.</li>
+        <li><i class="bi bi-check2-square" aria-hidden="true"></i>Ter um canal para mandar os prompts à turma (grupo de mensagens ou mural).</li>
+      </ul>
+    </section>
+
+    <!-- ============ AVALIAÇÃO ============ -->
+    <section class="panel-tab" id="p-avaliacao" role="tabpanel" aria-labelledby="t-avaliacao" hidden>
+      <h2>Avaliação simples</h2>
+      <p class="intro">Quatro critérios, três níveis. A avaliação olha o processo de decisão, não a qualidade técnica do jogo.</p>
+      <div class="table-wrap">
+        <table class="rubric">
+          <thead><tr><th>Critério</th><th>Iniciando</th><th>Em desenvolvimento</th><th>Consolidado</th></tr></thead>
+          <tbody>
+            <tr><td>Autoria das decisões</td><td>Não consegue explicar o jogo sem consultar a IA.</td><td>Explica com hesitação ou contradições.</td><td>Explica as 4 decisões com as próprias palavras.</td></tr>
+            <tr><td>Clareza do Mini-GDD</td><td>O colega não conseguiu explicar o jogo.</td><td>O colega explicou com lacunas.</td><td>O colega explicou o jogo sem perguntar nada.</td></tr>
+            <tr><td>Protótipo</td><td>Não demonstra ação, objetivo e derrota.</td><td>Demonstra parte deles.</td><td>Demonstra ação, objetivo e derrota jogáveis.</td></tr>
+            <tr><td>Iteração</td><td>Não houve mudança, ou ela não tem relação com o teste.</td><td>Mudança feita, justificativa vaga.</td><td>Mudança ligada a um ponto concreto da ficha do jogador.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js" integrity="sha384-czaB7zH9slIhvFgUxhO8sSnYf4cnCeV2N3zOvDnNKFzRKu5AwqDKEZlCLsaQkoop" crossorigin="anonymous"></script>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/materiais.js"></script>
+</body>
+</html>

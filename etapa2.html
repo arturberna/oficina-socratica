@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Etapa 2 | Oficina Socrática</title>
+  <meta name="description" content="Etapa 2 e fechamento da oficina: do Mini-GDD ao protótipo, teste cruzado e iteração.">
+  <script>
+    try {
+      if (sessionStorage.getItem("os-curtain") === "1") document.documentElement.classList.add("is-entering");
+      document.documentElement.setAttribute("data-theme", localStorage.getItem("os-theme") || "light");
+    } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Silkscreen&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHSWRr1XeTyhezb4abCG4ccI5AkVDxqC+" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/deck.css">
+</head>
+<body class="deck-page" data-deck-title="Etapa 2">
+
+  <header class="topbar deck-top">
+    <div class="deck-top__where">
+      <a class="brand" href="index.html#mapa" data-transition aria-label="Voltar ao mapa da oficina">
+        <span class="brand__mark"><i class="bi bi-map" aria-hidden="true"></i></span>
+        <span>Mapa</span>
+      </a>
+      <span class="chip deck-top__block" data-current-block>Etapa 2</span>
+    </div>
+    <div class="topbar__group">
+      <div class="timer" role="timer" aria-live="off">
+        <span class="timer__label"></span>
+        <span class="timer__time">0:00</span>
+        <button class="timer__btn" type="button" data-timer-toggle aria-label="Iniciar cronômetro"><i class="bi bi-play-fill" aria-hidden="true"></i></button>
+        <button class="timer__btn" type="button" data-timer-reset aria-label="Reiniciar cronômetro" title="Reiniciar (R)"><i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i></button>
+      </div>
+      <button class="btn btn--sm btn--icon" type="button" data-overview-toggle aria-label="Visão geral dos slides" title="Visão geral (O)"><i class="bi bi-grid-3x3-gap" aria-hidden="true"></i></button>
+      <button class="btn btn--sm btn--icon" type="button" data-notes-toggle aria-label="Notas do professor" title="Notas do professor (N)"><i class="bi bi-journal-text" aria-hidden="true"></i></button>
+      <button class="btn btn--sm btn--icon" type="button" data-fullscreen aria-label="Tela cheia" title="Tela cheia (F)"><i class="bi bi-arrows-fullscreen" aria-hidden="true"></i></button>
+      <button class="btn btn--sm btn--icon" type="button" data-theme-toggle aria-label="Alternar tema"><i class="bi bi-moon-stars" aria-hidden="true"></i></button>
+    </div>
+  </header>
+
+  <main class="deck">
+
+    <!-- 1 ============ ETAPA 2 ============ -->
+    <section class="slide slide--section" data-title="Etapa 2: o protótipo" data-block="Etapa 2">
+      <div class="slide__inner">
+        <div class="s-eyebrow" data-anim="fade">
+          <span class="chip chip--yellow"><i class="bi bi-tools" aria-hidden="true"></i>Etapa 2</span>
+          <span class="chip"><i class="bi bi-clock" aria-hidden="true"></i>50 min</span>
+          <span class="chip"><i class="bi bi-people" aria-hidden="true"></i>Grupos de 3 a 4</span>
+        </div>
+        <h1 class="s-title" data-anim="up">Do Mini-GDD ao protótipo</h1>
+        <div class="loop mt" data-stagger>
+          <span class="loop__node" style="color:#181b38"><i class="bi bi-file-earmark-text" aria-hidden="true"></i>Mini-GDD</span>
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+          <span class="loop__node loop__node--v"><i class="bi bi-boxes" aria-hidden="true"></i>Protótipo 1</span>
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+          <span class="loop__node" style="color:#181b38"><i class="bi bi-person-video3" aria-hidden="true"></i>Teste</span>
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+          <span class="loop__node" style="color:#181b38"><i class="bi bi-search" aria-hidden="true"></i>Reflexão</span>
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+          <span class="loop__node loop__node--v"><i class="bi bi-boxes" aria-hidden="true"></i>Protótipo 2</span>
+        </div>
+        <p class="s-quote mt" data-anim="up" style="margin-inline:0;font-size:clamp(1.6rem,3.2vw,3.2rem)">Faça primeiro o jogo funcionar. Depois faça ele ficar bonito.</p>
+      </div>
+      <aside class="notes">
+        <ul>
+          <li>15 min: protótipo 1.</li>
+          <li>12 min: teste cruzado.</li>
+          <li>10 min: reflexão com a Testadora.</li>
+          <li>13 min: protótipo 2.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 2 -->
+    <section class="slide" data-title="O protótipo mínimo" data-block="Etapa 2">
+      <div class="slide__inner">
+        <h2 class="s-h" data-anim="up">O menor jogo que outra pessoa consegue jogar</h2>
+        <div class="s-grid-3 mt" style="align-items:start">
+          <div class="need need--yes" data-anim="left">
+            <h3><i class="bi bi-check-circle-fill" aria-hidden="true"></i>O protótipo precisa ter</h3>
+            <ul data-stagger>
+              <li><i class="bi bi-check-lg" aria-hidden="true"></i><span>uma ação principal</span></li>
+              <li><i class="bi bi-check-lg" aria-hidden="true"></i><span>um objetivo</span></li>
+              <li><i class="bi bi-check-lg" aria-hidden="true"></i><span>uma condição de derrota</span></li>
+              <li><i class="bi bi-check-lg" aria-hidden="true"></i><span>um visual básico (formas simples bastam)</span></li>
+            </ul>
+          </div>
+          <div class="need need--no" data-anim="right">
+            <h3><i class="bi bi-x-circle-fill" aria-hidden="true"></i>Ainda não precisa de</h3>
+            <ul data-stagger>
+              <li><i class="bi bi-x-lg" aria-hidden="true"></i><span>história complexa</span></li>
+              <li><i class="bi bi-x-lg" aria-hidden="true"></i><span>vários personagens</span></li>
+              <li><i class="bi bi-x-lg" aria-hidden="true"></i><span>menus sofisticados</span></li>
+              <li><i class="bi bi-x-lg" aria-hidden="true"></i><span>dezenas de fases</span></li>
+              <li><i class="bi bi-x-lg" aria-hidden="true"></i><span>loja ou moedas para gastar</span></li>
+              <li><i class="bi bi-x-lg" aria-hidden="true"></i><span>trilha sonora e ranking online</span></li>
+            </ul>
+          </div>
+          <div class="gdd gdd--example" data-reveal>
+            <p class="s-small"><strong>Exemplo: Fuga Espacial</strong></p>
+            <div class="gdd__row"><b>Ação</b><span>mover a nave para desviar de meteoros</span></div>
+            <div class="gdd__row"><b>Meta</b><span>sobreviver e fazer a maior pontuação</span></div>
+            <div class="gdd__row"><b>Fim</b><span>ser atingido 3 vezes</span></div>
+            <div class="gdd__row"><b>Visual</b><span>neon / cyberpunk</span></div>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        <p>Avance uma vez para mostrar o exemplo "Fuga Espacial". A lista da direita é deliberada: tudo isso pode vir depois, se o teste mostrar que faz falta.</p>
+      </aside>
+    </section>
+
+    <!-- 3 -->
+    <section class="slide" data-title="A IA na Etapa 2" data-block="Etapa 2">
+      <div class="slide__inner">
+        <h2 class="s-h" data-anim="up">Agora a IA muda de papel duas vezes</h2>
+        <p class="s-lead" data-anim="up">Mentora e Redatora já fizeram a parte delas. Nesta etapa entram as outras duas, e a regra continua a mesma: quem decide é o grupo.</p>
+        <div class="s-grid-2 mt" data-stagger>
+          <article class="role" style="grid-template-columns:auto 1fr;align-items:center">
+            <div class="img-slot" data-src="assets/img/ia-construtora.webp" data-label="Robô montando blocos (1:1)" data-alt="Personagem da IA construtora" style="width:clamp(110px,14vw,200px);height:clamp(110px,14vw,200px)"></div>
+            <div class="s-stack" style="gap:.5em">
+              <h3>Construtora</h3>
+              <p>Transforma o Mini-GDD em um protótipo, ou nas regras do protótipo de papel.</p>
+              <p class="role__not"><i class="bi bi-x-circle" aria-hidden="true"></i>Não acrescenta mecânicas que o grupo não pediu.</p>
+            </div>
+          </article>
+          <article class="role" style="grid-template-columns:auto 1fr;align-items:center">
+            <div class="img-slot" data-src="assets/img/ia-testadora.webp" data-label="Robô com lupa (1:1)" data-alt="Personagem da IA testadora" style="width:clamp(110px,14vw,200px);height:clamp(110px,14vw,200px)"></div>
+            <div class="s-stack" style="gap:.5em">
+              <h3>Testadora</h3>
+              <p>Ajuda a entender o feedback do teste fazendo perguntas.</p>
+              <p class="role__not"><i class="bi bi-x-circle" aria-hidden="true"></i>Não diz o que mudar.</p>
+            </div>
+          </article>
+        </div>
+        <div class="rule mt" data-anim="up">
+          <span class="rule__icon"><i class="bi bi-bricks" aria-hidden="true"></i></span>
+          <p class="rule__text" style="font-size:1.15em">Não peça à IA para construir o jogo inteiro de uma vez. Peça o mínimo e mude uma coisa por vez.</p>
+        </div>
+      </div>
+      <aside class="notes">
+        <p>Lembre os papéis dentro do grupo: o Piloto conversa com a IA, o Redator mantém o Mini-GDD, o Observador vai atuar no teste.</p>
+      </aside>
+    </section>
+
+    <!-- 4 -->
+    <section class="slide" data-title="Escolham o caminho" data-block="Momento 2.1">
+      <div class="slide__inner">
+        <h2 class="s-h" data-anim="up">Escolham o caminho do protótipo</h2>
+        <div class="s-grid-2 mt" data-stagger>
+          <article class="path">
+            <div class="s-row"><span class="path__letter c-blue">A</span><h3>A IA constrói</h3></div>
+            <p>Para grupos com celular, tablet ou computador e internet.</p>
+            <ul>
+              <li>Gemini (botão Canvas) ou ChatGPT (Canvas)</li>
+              <li>A IA gera um jogo que roda no navegador</li>
+              <li>Vocês jogam ali mesmo, na conversa</li>
+            </ul>
+            <span class="chip chip--blue" style="justify-self:start"><i class="bi bi-star-fill" aria-hidden="true"></i>Caminho padrão</span>
+          </article>
+          <article class="path">
+            <div class="s-row"><span class="path__letter c-yellow">B</span><h3>Protótipo de papel</h3></div>
+            <div class="img-slot" data-src="assets/img/prototipo-papel.webp" data-label="Mesa com protótipo de papel visto de cima (4:3)" data-alt="Protótipo de jogo feito com papel" style="aspect-ratio:auto;height:clamp(110px,22vh,240px)"></div>
+            <p>Sem aparelho, sem internet, ou se a IA não gerar algo jogável em 10 minutos.</p>
+          </article>
+        </div>
+      </div>
+      <aside class="notes">
+        <ul>
+          <li>Os dois caminhos têm o mesmo objetivo: transformar decisões em regras que alguém consegue jogar.</li>
+          <li>Um grupo pode começar no A e migrar para o B se a internet falhar. Isso não é fracasso, é plano B.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 5 -->
+    <section class="slide" data-title="Caminho A: prompt da Construtora" data-block="Momento 2.1" data-timer="15" data-timer-label="2.1 Protótipo 1">
+      <div class="slide__inner">
+        <div class="s-grid-2 s-grid-2--wide-left">
+          <div class="prompt prompt--yellow" data-anim="left">
+            <div class="prompt__bar">
+              <span class="prompt__who"><i class="bi bi-tools" aria-hidden="true"></i>Prompt da Construtora</span>
+              <button class="btn btn--sm" type="button" data-copy="#p-construtora" data-press><i class="bi bi-copy" aria-hidden="true"></i><span data-copy-label>Copiar</span></button>
+            </div>
+<pre class="prompt__body" id="p-construtora" style="max-height:60vh">Este é o Mini-GDD do nosso grupo:
+
+<mark>[COLE O MINI-GDD AQUI]</mark>
+
+Atue como construtora de protótipos. Crie o MENOR protótipo jogável possível deste jogo, em um único arquivo HTML que funcione no navegador do celular e do computador.
+
+Regras:
+- implemente somente: a ação principal, o objetivo, a condição de derrota e um visual básico;
+- use formas simples (quadrados, círculos, cores) no lugar de desenhos;
+- controles por toque na tela e também pelo teclado;
+- NÃO acrescente nada que não esteja no Mini-GDD;
+- NÃO coloque textos de instrução na tela: queremos descobrir se o jogo se explica sozinho.
+
+Depois do código, liste em tópicos curtos:
+1. o que você implementou;
+2. o que do Mini-GDD ficou de fora.</pre>
+          </div>
+          <div class="s-stack">
+            <div class="moment" data-anim="up" style="grid-template-columns:auto 1fr">
+              <button class="ring" type="button" data-ring aria-label="Iniciar ou pausar o cronômetro de 15 minutos" style="width:6.5em">
+                <span class="ring__time">15:00</span>
+                <span class="ring__state"></span>
+              </button>
+              <p class="moment__title" style="font-size:1.25em">Protótipo 1</p>
+            </div>
+            <ol class="checklist" data-stagger>
+              <li><button class="check" type="button" aria-pressed="false"><span class="check__box"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="check__text">Abrir Gemini ou ChatGPT e ativar o Canvas</span></button></li>
+              <li><button class="check" type="button" aria-pressed="false"><span class="check__box"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="check__text">Colar o prompt com o Mini-GDD do grupo</span></button></li>
+              <li><button class="check" type="button" aria-pressed="false"><span class="check__box"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="check__text">Abrir a visualização e jogar uma partida</span></button></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        <ul>
+          <li>A regra de não colocar instruções na tela é proposital: o teste vai revelar se o jogo se explica sozinho.</li>
+          <li>Se a IA gerar algo que não roda, o Piloto cola a mensagem de erro e pede para corrigir só aquilo. Duas tentativas sem sucesso: Caminho B.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide" data-title="Explique antes de mudar" data-block="Momento 2.1">
+      <div class="slide__inner">
+        <div class="s-grid-2">
+          <div class="s-stack">
+            <h2 class="s-h" data-anim="up">Explique antes de mudar</h2>
+            <p class="s-lead" data-anim="up">A IA escreveu o código, mas o jogo é de vocês. Antes de testar, alguém do grupo precisa entender como ele funciona.</p>
+            <div class="prompt" data-anim="up">
+              <div class="prompt__bar">
+                <span class="prompt__who"><i class="bi bi-chat-text" aria-hidden="true"></i>Pergunte à IA</span>
+                <button class="btn btn--sm" type="button" data-copy="#p-explique" data-press><i class="bi bi-copy" aria-hidden="true"></i><span data-copy-label>Copiar</span></button>
+              </div>
+              <p class="prompt__body" id="p-explique">Explique em linguagem simples, em no máximo 5 frases, como o jogo decide que o jogador perdeu.</p>
+            </div>
+          </div>
+          <div class="chat" style="align-self:center">
+            <div class="msg msg--ia" data-reveal><span class="msg__avatar"><i class="bi bi-robot" aria-hidden="true"></i></span><p class="msg__bubble">A cada quadro, o jogo confere se a nave encostou em algum meteoro. Se encostou, tira uma vida. Quando as vidas chegam a zero, aparece o fim de jogo.</p></div>
+            <div class="msg msg--aluno" data-reveal><span class="msg__avatar"><i class="bi bi-person" aria-hidden="true"></i></span><p class="msg__bubble">Então: toda hora o jogo checa se bateu. Bateu três vezes, acabou.</p></div>
+            <div class="msg msg--aluno msg--result" data-reveal><span class="msg__avatar"><i class="bi bi-check2" aria-hidden="true"></i></span><p class="msg__bubble"><strong class="tag">O Redator explicou com as próprias palavras</strong>O grupo entende o próprio protótipo.</p></div>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        <p>Se ninguém do grupo consegue explicar, o grupo ainda não entende o próprio protótipo, e isso precisa ser resolvido antes do teste. É aqui que a IA vira ferramenta de aprendizagem, e não máquina de copiar código.</p>
+      </aside>
+    </section>
+
+    <!-- 7 -->
+    <section class="slide" data-title="Caminho B: protótipo de papel" data-block="Momento 2.1">
+      <div class="slide__inner">
+        <div class="s-grid-2">
+          <div class="s-stack">
+            <div class="s-row" data-anim="up"><span class="path__letter c-yellow">B</span><h2 class="s-h">Protótipo de papel</h2></div>
+            <div class="s-grid-3" data-stagger style="grid-template-columns:repeat(3,minmax(0,1fr))">
+              <div class="crew"><i class="bi bi-file-earmark" aria-hidden="true" style="color:var(--blue)"></i><h3>A tela</h3><p>Uma folha é a tela do jogo.</p></div>
+              <div class="crew"><i class="bi bi-scissors" aria-hidden="true" style="color:var(--pink)"></i><h3>As peças</h3><p>Recortes viram personagem, obstáculos e itens.</p></div>
+              <div class="crew"><i class="bi bi-cpu" aria-hidden="true" style="color:var(--green)"></i><h3>O computador</h3><p>Uma pessoa move as peças seguindo regras fixas, sem improvisar.</p></div>
+            </div>
+            <p class="s-small" data-anim="fade">Sem nenhum aparelho, o grupo escreve as 6 regras sozinho. O exercício é o mesmo: transformar decisões em regras.</p>
+          </div>
+          <div class="prompt prompt--yellow" data-anim="right">
+            <div class="prompt__bar">
+              <span class="prompt__who"><i class="bi bi-tools" aria-hidden="true"></i>Construtora, versão papel</span>
+              <button class="btn btn--sm" type="button" data-copy="#p-papel" data-press><i class="bi bi-copy" aria-hidden="true"></i><span data-copy-label>Copiar</span></button>
+            </div>
+<pre class="prompt__body" id="p-papel" style="max-height:56vh">Este é o Mini-GDD do nosso grupo:
+
+<mark>[COLE O MINI-GDD AQUI]</mark>
+
+Vamos fazer um protótipo de papel. Uma pessoa do grupo vai ser o "computador" e mover as peças.
+
+Transforme o jogo em no máximo 6 regras curtas que essa pessoa consiga seguir sem pensar, por exemplo:
+"A cada 3 segundos, coloque um obstáculo no topo da folha."
+
+Não acrescente nada que não esteja no Mini-GDD.</pre>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        <p>Tenha folhas, canetas e tesouras separadas antes da aula. O papel funciona surpreendentemente bem para revelar regras confusas: se o "computador" hesita, a regra está mal definida.</p>
+      </aside>
+    </section>
+
+    <!-- 8 -->
+    <section class="slide slide--section" data-title="Teste cruzado" data-block="Momento 2.2" data-timer="12" data-timer-label="2.2 Teste cruzado">
+      <div class="slide__inner">
+        <div class="s-grid-2" style="align-items:center">
+          <div class="s-stack">
+            <div class="s-eyebrow" data-anim="fade"><span class="chip chip--yellow"><i class="bi bi-arrow-left-right" aria-hidden="true"></i>Teste cruzado</span><span class="chip"><i class="bi bi-clock" aria-hidden="true"></i>12 min</span></div>
+            <h2 class="s-title" data-anim="up">Troquem de protótipo. Quem criou não explica nada.</h2>
+            <p class="s-lead" data-anim="up">O outro grupo simplesmente joga. O Observador do grupo criador só olha e anota.</p>
+          </div>
+          <div class="moment" data-anim="right">
+            <button class="ring" type="button" data-ring aria-label="Iniciar ou pausar o cronômetro de 12 minutos">
+              <span class="ring__time">12:00</span>
+              <span class="ring__state"></span>
+            </button>
+            <div>
+              <p class="moment__title">Jogar e preencher a ficha</p>
+              <p class="moment__desc">A ficha está no próximo slide e na página Materiais.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        <ul>
+          <li>Organize as trocas em pares de grupos (1 com 2, 3 com 4...). Se o número for ímpar, faça um trio de trocas em roda.</li>
+          <li>Segure os criadores: a vontade de explicar é enorme. Cada explicação esconde um problema que o teste revelaria.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 9 -->
+    <section class="slide" data-title="Ficha do jogador" data-block="Momento 2.2">
+      <div class="slide__inner">
+        <div class="s-grid-2 s-grid-2--wide-left">
+          <div class="s-stack">
+            <h2 class="s-h" data-anim="up">Ficha do jogador</h2>
+            <ol class="sheet" data-stagger>
+              <li>Você entendeu o que deveria fazer?<span class="sheet__opts"><span>Sim</span><span>Mais ou menos</span><span>Não</span></span></li>
+              <li>Você entendeu como ganhar pontos ou progredir?<span class="sheet__opts"><span>Sim</span><span>Mais ou menos</span><span>Não</span></span></li>
+              <li>Você descobriu sozinho como perder?<span class="sheet__opts"><span>Sim</span><span>Não</span></span></li>
+              <li>O que foi mais divertido?<span></span></li>
+              <li>O que foi mais confuso?<span></span></li>
+              <li>O que você mudaria?<span></span></li>
+              <li class="is-gold"><strong>Em que momento você ficou com vontade de parar de jogar?</strong><span><i class="bi bi-star-fill" aria-hidden="true" style="color:var(--yellow)"></i></span></li>
+            </ol>
+          </div>
+          <div class="s-stack" style="align-self:center">
+            <div class="rule" data-anim="right">
+              <span class="rule__icon"><i class="bi bi-star-fill" aria-hidden="true"></i></span>
+              <p class="rule__text" style="font-size:1.1em">A pergunta 7 é a mais importante: revela problemas que as outras não capturam.</p>
+            </div>
+            <a class="btn" href="materiais.html#ficha" data-transition data-press data-anim="fade" style="justify-self:start"><i class="bi bi-folder2-open" aria-hidden="true"></i><span>Abrir a ficha em Materiais</span></a>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        <p>Os testadores respondem por escrito, em papel ou no celular. O grupo criador vai colar essas respostas no prompt da Testadora.</p>
+      </aside>
+    </section>
+
+    <!-- 10 -->
+    <section class="slide slide--section slide--center" data-title="A pergunta de ouro" data-block="Momento 2.2">
+      <div class="slide__inner">
+        <p class="s-quote" data-anim="up">Em que momento você ficou com vontade de parar de jogar?</p>
+      </div>
+      <aside class="notes">
+        <p>Use este slide para encerrar o teste. Peça a dois ou três testadores que respondam em voz alta, sem nomear o grupo.</p>
+      </aside>
+    </section>
+
+    <!-- 11 -->
+    <section class="slide" data-title="A IA vira Testadora" data-block="Momento 2.3" data-timer="10" data-timer-label="2.3 Testadora">
+      <div class="slide__inner">
+        <div class="s-grid-2 s-grid-2--wide-left">
+          <div class="prompt prompt--pink" data-anim="left">
+            <div class="prompt__bar">
+              <span class="prompt__who"><i class="bi bi-search" aria-hidden="true"></i>Prompt da Testadora</span>
+              <button class="btn btn--sm" type="button" data-copy="#p-testadora" data-press><i class="bi bi-copy" aria-hidden="true"></i><span data-copy-label>Copiar</span></button>
+            </div>
+<pre class="prompt__body" id="p-testadora" style="max-height:60vh">Este é o nosso Mini-GDD:
+
+<mark>[COLE O MINI-GDD]</mark>
+
+Este foi o feedback de um jogador que testou nosso protótipo:
+
+<mark>[COLE A FICHA DO JOGADOR]</mark>
+
+Atue como testadora de jogos. Não concorde automaticamente com o jogador.
+
+Identifique, se existirem:
+1. problemas de compreensão;
+2. problemas de jogabilidade;
+3. problemas de dificuldade;
+4. problemas visuais;
+5. momentos que podem fazer o jogador desistir.
+
+Depois faça no máximo 3 perguntas que precisamos responder antes de mudar o jogo.
+
+Não proponha soluções. Queremos pensar nos problemas primeiro.</pre>
+          </div>
+          <div class="s-stack">
+            <h2 class="s-h" data-anim="up">De volta ao método socrático</h2>
+            <div class="chat" data-anim="up">
+              <div class="msg msg--wrong"><span class="msg__avatar"><i class="bi bi-x-lg" aria-hidden="true"></i></span><p class="msg__bubble"><span class="sr-only">Resposta que a Testadora não deve dar: </span>Faça os meteoros mais lentos.</p></div>
+              <div class="msg msg--ia" data-reveal><span class="msg__avatar"><i class="bi bi-robot" aria-hidden="true"></i></span><p class="msg__bubble">Por que você acha que o jogador não entendeu que precisava desviar?</p></div>
+            </div>
+            <div class="moment" data-anim="up" style="grid-template-columns:auto 1fr">
+              <button class="ring" type="button" data-ring aria-label="Iniciar ou pausar o cronômetro de 10 minutos" style="width:6.5em">
+                <span class="ring__time">10:00</span>
+                <span class="ring__state"></span>
+              </button>
+              <p class="moment__title" style="font-size:1.15em">O grupo decide UMA mudança: a que mais afeta a vontade de continuar jogando.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        <p>A Testadora não diz "faça X". Ela pergunta. Se a IA de um grupo sair dando soluções, peça para o Piloto lembrar: "não proponha soluções, faça perguntas".</p>
+      </aside>
+    </section>
+
+    <!-- 12 -->
+    <section class="slide" data-title="Protótipo 2: uma mudança" data-block="Momento 2.4" data-timer="13" data-timer-label="2.4 Protótipo 2">
+      <div class="slide__inner">
+        <div class="s-grid-2 s-grid-2--wide-left">
+          <div class="prompt prompt--green" data-anim="left">
+            <div class="prompt__bar">
+              <span class="prompt__who"><i class="bi bi-arrow-repeat" aria-hidden="true"></i>Prompt de mudança (Caminho A)</span>
+              <button class="btn btn--sm" type="button" data-copy="#p-mudanca" data-press><i class="bi bi-copy" aria-hidden="true"></i><span data-copy-label>Copiar</span></button>
+            </div>
+<pre class="prompt__body" id="p-mudanca" style="max-height:56vh">Decidimos fazer UMA mudança no protótipo:
+
+<mark>[DESCREVA A MUDANÇA QUE O GRUPO DECIDIU]</mark>
+
+Motivo: <mark>[O QUE O JOGADOR DISSE QUE NOS LEVOU A ISSO]</mark>
+
+Faça somente essa mudança, sem alterar o resto do jogo.
+Depois diga exatamente o que mudou no código, em linguagem simples.</pre>
+          </div>
+          <div class="s-stack">
+            <h2 class="s-h" data-anim="up">Protótipo 2</h2>
+            <div class="moment" data-anim="up" style="grid-template-columns:auto 1fr">
+              <button class="ring" type="button" data-ring aria-label="Iniciar ou pausar o cronômetro de 13 minutos" style="width:6.5em">
+                <span class="ring__time">13:00</span>
+                <span class="ring__state"></span>
+              </button>
+              <p class="moment__desc">Caminho B: reescrevam uma das 6 regras ou troquem uma peça de papel.</p>
+            </div>
+            <ol class="checklist" data-stagger>
+              <li><button class="check" type="button" aria-pressed="false"><span class="check__box"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="check__text">Fazer a mudança</span></button></li>
+              <li><button class="check" type="button" aria-pressed="false"><span class="check__box"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="check__text">O mesmo testador joga de novo por 2 minutos</span></button></li>
+              <li><button class="check" type="button" aria-pressed="false"><span class="check__box"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="check__text">O Redator registra: o que mudou e por quê</span></button></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        <p>Uma mudança só. Grupos que querem mudar tudo perdem a relação entre o feedback e a melhoria, que é justamente o que queremos que eles enxerguem.</p>
+      </aside>
+    </section>
+
+    <!-- 13 -->
+    <section class="slide slide--center" data-title="O que mudou?" data-block="Momento 2.4">
+      <div class="slide__inner">
+        <div class="loop" style="justify-content:center" data-stagger>
+          <span class="loop__node loop__node--v"><i class="bi bi-boxes" aria-hidden="true"></i>Protótipo 1</span>
+          <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          <span class="loop__node"><i class="bi bi-person-video3" aria-hidden="true"></i>Teste</span>
+          <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          <span class="loop__node"><i class="bi bi-chat-left-dots" aria-hidden="true"></i>Feedback</span>
+          <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          <span class="loop__node"><i class="bi bi-search" aria-hidden="true"></i>Reflexão com IA</span>
+          <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          <span class="loop__node loop__node--v"><i class="bi bi-boxes" aria-hidden="true"></i>Protótipo 2</span>
+        </div>
+        <p class="s-quote mt" data-anim="up">O que mudou entre a primeira e a segunda versão?</p>
+        <p class="s-lead" data-anim="fade">E por quê?</p>
+      </div>
+      <aside class="notes">
+        <p>Esta pergunta apresenta uma ideia central do desenvolvimento de jogos: iteração. A resposta vai para a seção 9 do Mini-GDD.</p>
+      </aside>
+    </section>
+
+    <!-- 14 ============ FECHAMENTO ============ -->
+    <section class="slide" data-title="Fechamento: o Mini-GDD cresceu" data-block="Fechamento" data-timer="5" data-timer-label="Fechamento">
+      <div class="slide__inner">
+        <div class="s-grid-2">
+          <div class="s-stack">
+            <div class="s-eyebrow" data-anim="fade"><span class="chip chip--yellow"><i class="bi bi-trophy-fill" aria-hidden="true"></i>Fechamento</span><span class="chip"><i class="bi bi-clock" aria-hidden="true"></i>5 min</span></div>
+            <h2 class="s-h" data-anim="up">Um documento só, que cresceu com vocês</h2>
+            <p class="s-lead" data-anim="up">O Mini-GDD da Etapa 1 ganha três seções novas. Ele é a entrega do grupo.</p>
+            <a class="btn" href="materiais.html#gdd" data-transition data-press data-anim="fade" style="justify-self:start"><i class="bi bi-file-earmark-text" aria-hidden="true"></i><span>Modelo completo em Materiais</span></a>
+          </div>
+          <div class="gdd" data-anim="right">
+            <div class="gdd__row"><b>1</b><span>Nome provisório</span></div>
+            <div class="gdd__row"><b>2</b><span>Ideia do jogo</span></div>
+            <div class="gdd__row"><b>3</b><span>O que o jogador faz?</span></div>
+            <div class="gdd__row"><b>4</b><span>O que faz o jogador continuar jogando?</span></div>
+            <div class="gdd__row"><b>5</b><span>Quando o jogador perde?</span></div>
+            <div class="gdd__row"><b>6</b><span>Como o jogo se parece?</span></div>
+            <div class="gdd__row"><b>7</b><span>Resumo da experiência</span></div>
+            <div class="gdd__row is-new" data-reveal><b>8</b><span><strong>Protótipo:</strong> caminho usado e link ou foto</span></div>
+            <div class="gdd__row is-new" data-reveal><b>9</b><span><strong>Teste:</strong> quem testou, o que funcionou, o que mudou e por quê</span></div>
+            <div class="gdd__row is-new" data-reveal><b>10</b><span><strong>Uso da IA:</strong> como cada papel ajudou e uma decisão que foi nossa</span></div>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        <ul>
+          <li>Avance três vezes para fazer as seções novas aparecerem.</li>
+          <li>Porta-vozes de 2 ou 3 grupos respondem em 30 segundos: o que mudou entre a versão 1 e a 2?</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 15 -->
+    <section class="slide slide--section slide--center" data-title="Encerramento" data-block="Fechamento">
+      <div class="slide__inner">
+        <p class="s-quote" data-anim="up">O primeiro protótipo não precisa ser bom. Ele precisa ajudar você a descobrir como melhorar o jogo.</p>
+        <div class="s-row mt" style="justify-content:center" data-anim="up">
+          <a class="btn btn--yellow" href="index.html#mapa" data-transition data-press><i class="bi bi-map" aria-hidden="true"></i><span>Voltar ao mapa</span></a>
+          <a class="btn" href="materiais.html" data-transition data-press><i class="bi bi-folder2-open" aria-hidden="true"></i><span>Materiais</span></a>
+        </div>
+      </div>
+      <aside class="notes">
+        <p>Marque as Fases 4 e 5 como concluídas no mapa. Use a rubrica da página Materiais para avaliar o processo de decisão, não a qualidade técnica do jogo.</p>
+      </aside>
+    </section>
+
+  </main>
+
+  <nav class="deck-nav" aria-label="Navegação dos slides">
+    <span class="deck-nav__count" data-count>1 / 15</span>
+    <div class="deck-nav__btns">
+      <button class="btn btn--icon" type="button" data-prev aria-label="Slide anterior"><i class="bi bi-arrow-left" aria-hidden="true"></i></button>
+      <button class="btn btn--primary btn--icon" type="button" data-next aria-label="Próximo"><i class="bi bi-arrow-right" aria-hidden="true"></i></button>
+    </div>
+  </nav>
+  <div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+
+  <div class="notes-panel" role="dialog" aria-label="Notas do professor"></div>
+
+  <div class="overview" role="dialog" aria-label="Visão geral dos slides">
+    <div class="overview__head">
+      <h2>Etapa 2: todos os slides</h2>
+      <button class="btn btn--sm" type="button" data-overview-toggle><i class="bi bi-x-lg" aria-hidden="true"></i><span>Fechar</span></button>
+    </div>
+    <div class="overview__grid"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js" integrity="sha384-czaB7zH9slIhvFgUxhO8sSnYf4cnCeV2N3zOvDnNKFzRKu5AwqDKEZlCLsaQkoop" crossorigin="anonymous"></script>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/deck.js"></script>
+</body>
+</html>

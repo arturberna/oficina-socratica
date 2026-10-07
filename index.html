@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oficina Socrática</title>
+  <meta name="description" content="Oficina de 2 horas: do conceito ao primeiro protótipo de um jogo, com a IA como mentora e não como autora.">
+  <script>
+    try {
+      if (sessionStorage.getItem("os-curtain") === "1") document.documentElement.classList.add("is-entering");
+      document.documentElement.setAttribute("data-theme", localStorage.getItem("os-theme") || "light");
+    } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Silkscreen&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHSWRr1XeTyhezb4abCG4ccI5AkVDxqC+" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/map.css">
+</head>
+<body class="home">
+
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Oficina Socrática, início">
+      <span class="brand__mark"><i class="bi bi-controller" aria-hidden="true"></i></span>
+      <span>Oficina Socrática</span>
+    </a>
+    <div class="topbar__group">
+      <a class="btn btn--sm" href="materiais.html" data-transition data-press>
+        <i class="bi bi-folder2-open" aria-hidden="true"></i><span>Materiais</span>
+      </a>
+      <button class="btn btn--sm btn--icon" type="button" data-theme-toggle aria-label="Alternar tema">
+        <i class="bi bi-moon-stars" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ CAPA ============ -->
+  <section class="cover" aria-labelledby="cover-title">
+    <div class="cover__text">
+      <!-- <p class="cover__kicker"><span class="chip chip--yellow"><i class="bi bi-hourglass-split" aria-hidden="true"></i>2 horas</span> <span class="chip"><i class="bi bi-people" aria-hidden="true"></i>Jovens de 15 a 17 anos</span></p> -->
+      <h1 id="cover-title" class="cover__title" data-split>Do “quero fazer um jogo” ao primeiro protótipo</h1>
+      <p class="cover__lead">Cada aluno decide o próprio jogo. A IA pergunta, organiza, constrói e testa, mas não decide nada.</p>
+      <div class="cover__actions">
+        <a class="btn btn--primary" href="#mapa" data-scroll-map data-press>
+          <i class="bi bi-map" aria-hidden="true"></i><span>Abrir o mapa da oficina</span>
+        </a>
+        <a class="btn" href="etapa1.html#1" data-transition data-press>
+          <i class="bi bi-play-fill" aria-hidden="true"></i><span>Ir direto para a abertura</span>
+        </a>
+      </div>
+      <ul class="cover__rules" aria-label="Regras da oficina">
+        <li><i class="bi bi-person-check" aria-hidden="true"></i>IA pode sugerir. Quem decide é você.</li>
+        <li><i class="bi bi-chat-square-text" aria-hidden="true"></i>Se você não consegue explicar seu jogo sem a IA, ele ainda não está definido.</li>
+      </ul>
+    </div>
+    <div class="cover__art">
+      <div class="img-slot cover__img" data-src="assets/img/capa.webp" data-label="Ilustração da capa (16:9). Prompt no plano-implementacao.md." data-alt="Estudante desenhando fases de jogo em um caderno"></div>
+    </div>
+  </section>
+
+  <!-- ============ MAPA ============ -->
+  <section class="world" id="mapa" aria-labelledby="world-title">
+    <div class="world__head">
+      <h2 id="world-title" class="world__title">Mapa da oficina</h2>
+      <div class="hud" role="group" aria-label="Situação da oficina">
+        <div class="hud__cell">
+          <i class="bi bi-hourglass-split" aria-hidden="true"></i>
+          <span class="pixel">Tempo restante</span>
+          <strong data-hud-time>2h00</strong>
+        </div>
+        <div class="hud__cell">
+          <i class="bi bi-flag" aria-hidden="true"></i>
+          <span class="pixel">Fases</span>
+          <strong data-hud-count>0 de 5</strong>
+        </div>
+        <div class="hud__meter" aria-hidden="true"><span data-hud-meter></span></div>
+        <button class="btn btn--sm btn--ghost" type="button" data-reset-progress>
+          <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i><span>Recomeçar</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="world__body">
+      <div class="map" data-map>
+        <div class="map__terrain" aria-hidden="true">
+          <span class="map__hint pixel" hidden data-map-hint><i class="bi bi-image" aria-hidden="true"></i> Fundo provisório. Gere assets/img/mapa-mundo.webp</span>
+        </div>
+        <div class="map__trail" data-trail aria-hidden="true"></div>
+        <!-- Trilha desenhada em mapa-mundo.webp (1408x768), em % da imagem, de uma fase até a seguinte.
+             Medida automaticamente na imagem; se a imagem mudar, refaça a medição. -->
+        <script type="application/json" data-world-path data-ratio="1408/768">[[[19.32,79.82],[23.76,77.54],[27.38,74.8],[29.94,70.12],[30.58,65.43],[30.58,61.52],[26.95,53.71],[28.12,42.45]],[[28.12,42.45],[33.56,49.02],[36.97,49.02],[40.8,45.9],[44.42,45.9],[45.06,47.07],[50.78,49.48]],[[50.78,49.48],[58.27,62.3],[59.55,67.77],[64.03,75.2],[69.57,75.59],[74.5,62.76]],[[74.5,62.76],[77.24,55.27],[77.24,52.15],[76.6,50.98],[76.6,49.41],[73.83,44.34],[69.99,40.43],[68.29,37.3],[67.44,34.57],[67.44,31.84],[72.12,26.76],[81.46,23.44]]]</script>
+
+        <button class="map-node" type="button" data-phase="1" data-x="19.32" data-y="79.82" data-color="yellow">
+          <span class="map-node__badge"><i class="bi bi-flag-fill" aria-hidden="true"></i></span>
+          <span class="map-node__label"><span class="pixel">Fase 1</span>Vila do Início</span>
+        </button>
+        <button class="map-node" type="button" data-phase="2" data-x="28.12" data-y="42.45" data-color="blue">
+          <span class="map-node__badge"><i class="bi bi-chat-quote-fill" aria-hidden="true"></i></span>
+          <span class="map-node__label"><span class="pixel">Fase 2</span>Acampamento da Mentora</span>
+        </button>
+        <button class="map-node" type="button" data-phase="3" data-x="50.78" data-y="49.48" data-color="pink">
+          <span class="map-node__badge"><i class="bi bi-people-fill" aria-hidden="true"></i></span>
+          <span class="map-node__label"><span class="pixel">Fase 3</span>Ponte dos Grupos</span>
+        </button>
+        <button class="map-node" type="button" data-phase="4" data-x="74.5" data-y="62.76" data-color="green">
+          <span class="map-node__badge"><i class="bi bi-tools" aria-hidden="true"></i></span>
+          <span class="map-node__label"><span class="pixel">Fase 4</span>Oficina da Construtora</span>
+        </button>
+        <button class="map-node" type="button" data-phase="5" data-x="81.46" data-y="23.44" data-color="yellow">
+          <span class="map-node__badge"><i class="bi bi-trophy-fill" aria-hidden="true"></i></span>
+          <span class="map-node__label"><span class="pixel">Fase 5</span>Torre do Mini-GDD</span>
+        </button>
+
+        <div class="player" data-player aria-hidden="true">
+          <span class="player__shadow"></span>
+          <span class="player__body"><i class="bi bi-person-walking"></i></span>
+        </div>
+      </div>
+
+      <aside class="phase-card panel" data-card aria-live="polite">
+        <!-- preenchido pelo map.js a partir dos dados abaixo -->
+      </aside>
+    </div>
+
+    <p class="world__keys">
+      <span><kbd>1</kbd> a <kbd>5</kbd> escolhem a fase</span>
+      <span><kbd>Enter</kbd> entra na fase</span>
+    </p>
+  </section>
+
+  <!-- ============ Dados das fases (lidos pelo map.js) ============ -->
+  <div hidden>
+    <article data-phase-info="1" data-minutes="5" data-href="etapa1.html#1">
+      <h3>Abertura</h3>
+      <p class="phase-card__where">Vila do Início</p>
+      <ul class="phase-card__meta">
+        <li><i class="bi bi-clock"></i>5 min</li>
+        <li><i class="bi bi-people"></i>Turma inteira</li>
+        <li><i class="bi bi-robot"></i>Sem IA</li>
+      </ul>
+      <ol class="phase-card__steps">
+        <li>A pergunta dos 30 segundos</li>
+        <li>O ciclo da oficina</li>
+        <li>As regras do dia</li>
+      </ol>
+    </article>
+    <article data-phase-info="2" data-minutes="55" data-href="etapa1.html#4">
+      <h3>Etapa 1: o conceito do jogo</h3>
+      <p class="phase-card__where">Acampamento da Mentora</p>
+      <ul class="phase-card__meta">
+        <li><i class="bi bi-clock"></i>55 min</li>
+        <li><i class="bi bi-person"></i>Individual, no celular</li>
+        <li><i class="bi bi-robot"></i>Mentora e Redatora</li>
+      </ul>
+      <ol class="phase-card__steps">
+        <li>As 4 perguntas num jogo conhecido <em>8 min</em></li>
+        <li>Conversa socrática com a Mentora <em>25 min</em></li>
+        <li>Mini-GDD com a Redatora <em>12 min</em></li>
+        <li>Troca em pares <em>10 min</em></li>
+      </ol>
+    </article>
+    <article data-phase-info="3" data-minutes="5" data-href="etapa1.html#17">
+      <h3>Transição: formar os grupos</h3>
+      <p class="phase-card__where">Ponte dos Grupos</p>
+      <ul class="phase-card__meta">
+        <li><i class="bi bi-clock"></i>5 min</li>
+        <li><i class="bi bi-people"></i>Grupos de 3 a 4</li>
+        <li><i class="bi bi-robot"></i>Sem IA</li>
+      </ul>
+      <ol class="phase-card__steps">
+        <li>Escolher a ideia mais clara, não a mais ambiciosa</li>
+        <li>Dividir os papéis do grupo</li>
+        <li>Escolher o caminho: IA ou papel</li>
+      </ol>
+    </article>
+    <article data-phase-info="4" data-minutes="50" data-href="etapa2.html#1">
+      <h3>Etapa 2: o protótipo</h3>
+      <p class="phase-card__where">Oficina da Construtora</p>
+      <ul class="phase-card__meta">
+        <li><i class="bi bi-clock"></i>50 min</li>
+        <li><i class="bi bi-people"></i>Grupos</li>
+        <li><i class="bi bi-robot"></i>Construtora e Testadora</li>
+      </ul>
+      <ol class="phase-card__steps">
+        <li>Protótipo 1 <em>15 min</em></li>
+        <li>Teste cruzado <em>12 min</em></li>
+        <li>Reflexão com a Testadora <em>10 min</em></li>
+        <li>Protótipo 2 <em>13 min</em></li>
+      </ol>
+    </article>
+    <article data-phase-info="5" data-minutes="5" data-href="etapa2.html#14">
+      <h3>Fechamento</h3>
+      <p class="phase-card__where">Torre do Mini-GDD</p>
+      <ul class="phase-card__meta">
+        <li><i class="bi bi-clock"></i>5 min</li>
+        <li><i class="bi bi-people"></i>Turma inteira</li>
+        <li><i class="bi bi-robot"></i>Sem IA</li>
+      </ul>
+      <ol class="phase-card__steps">
+        <li>O Mini-GDD ganha as seções 8, 9 e 10</li>
+        <li>O que mudou entre a versão 1 e a 2?</li>
+      </ol>
+    </article>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js" integrity="sha384-czaB7zH9slIhvFgUxhO8sSnYf4cnCeV2N3zOvDnNKFzRKu5AwqDKEZlCLsaQkoop" crossorigin="anonymous"></script>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/map.js"></script>
+</body>
+</html>
